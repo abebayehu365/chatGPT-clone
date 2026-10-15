@@ -1,0 +1,36 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/merchant/queryOrder"
+method: POST
+headers:
+  x-app-key: "{{appid}}"
+  Authorization: "{{token}}"
+body:
+  type: json
+  content: "{\r
+
+    \r
+
+    \t\"timestamp\": \"1535166225\",\r
+
+    \t\"nonce_str\": \"5K8264ILTKCH16CQ2502SI8ZNMTM67VS\",\r
+
+    \t\"method\": \"payment.queryorder\",\r
+
+    \t\"sign_type\": \"SHA256WithRSA\",\r
+
+    \t\"sign\": \"iq33P+PJk1A+aArrb9cFQk1zAXTJ8gp3+1fuonRETw26Hbjo1DLy7ANgQsp0DaFOnKCGLCDDTpIohH7kypuOcxjWrkjdyULNl2rIQEseTKugFp4UozwmXXO8Bfv/eEP//S0IEUlq7Y0wrUQU82g+A8JwvZPIU5furEadJx/Bj17Pbsjp4oeteS0fxORH80JUNeRKVhDRYl6bKyAX7V8mZRZhGDFLrdYc/rHiSg9+nVh5v5vmtzJ9v6zhVEJkLB8G5AG9KvD4Mf1PXmsszh40JIyft5X2Abc54cIDgfmX8cYIPA6fE6ftHJcAM+Gk74YehMIvQw3d75rZX/k17JdKZQ==\",\r
+
+    \t\"version\": \"1.0\",\r
+
+    \t\"biz_content\": {\r
+
+    \        \"appid\": \"{{MerchantId}}\",\r
+
+    \        \"merch_code\": \"{{MerchantCode}}\",\r
+
+    \t\t\"merch_order_id\": \"{{merch_order_id}}\"\r
+
+    \t}\r
+
+    }"
+order: 8000

@@ -1,0 +1,44 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/app/payOrder"
+method: POST
+headers:
+  x-app-key: "{{appid}}"
+  Authorization: "{{token}}"
+body:
+  type: json
+  content: "{\r
+
+    \r
+
+    \t\"timestamp\": \"1535166225\",\r
+
+    \t\"nonce_str\": \"5K8264ILTKCH16CQ2502SI8ZNMTM67VS\",\r
+
+    \t\"method\": \"payment.payorder\",\r
+
+    \t\"sign_type\": \"SHA256WithRSA\",\r
+
+    \t\"sign\": \"UAyflMIc5vmk1iux0T8rtW64IWlTYpTZy0EkZ0t9YZ8iLpnwgTVxy++5v1Qz9qtzLffgAhJLpPf1evYz9XLzSpmOAFsSuISH+1+OFTM4fpQQMbKABf5etNbmy72uGBcC/qZXb6ETVJNqGET9NrZbXyNeJW8e5vtHCIxPEk92FptaUWLDr20hrQaVJQNlIJjgdqOV5lpW1tsiOrW/mlRv4a2fzlQMIlJv2ZxPMiyl23Jm8PmB6AvLnCTGsKUQcmpJGPewXynJlDXjfitPfHvIaP+UNqQ2f4nhp6v7RVSzAQHQ3eRvYpnHI5rgHyQul8cC2nyMDkWi5Y9zuG8xvv1lsQ==\",\r
+
+    \t\"lang\": \"en_US\",\r
+
+    \t\"version\": \"1.0\",\r
+
+    \t\"app_code\": \"{{MerchantId}}\",\r
+
+    \t\"biz_content\": {\r
+
+    \t\t\"prepay_id\": \"{{prepay_id}}\",\r
+
+    \t\t\"payer_identifier_type\": \"01\",\r
+
+    \t\t\"payer_identifier\": \"{{ConsumerMsisdn}}\",\r
+
+    \t\t\"payer_type\": \"1000\",\r
+
+    \t\t\"security_credential\": \"{{ConsumerPin}}\"\r
+
+    \t}\r
+
+    }"
+order: 6000

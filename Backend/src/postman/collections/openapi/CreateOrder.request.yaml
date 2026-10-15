@@ -1,0 +1,66 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/merchant/preOrder"
+method: POST
+headers:
+  Authorization: "{{token}}"
+  x-app-key: "{{appid}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"nonce_str\": \"fcab0d2949e64a69a212aa83eab6ee1d\",\r
+
+    \  \"biz_content\": {\r
+
+    \    \"trans_currency\": \"ETB\",\r
+
+    \    \"total_amount\": \"12\",\r
+
+    \    \"merch_order_id\": \"{{merch_order_id}}\",\r
+
+    \    \"appid\": \"{{MerchantId}}\",\r
+
+    \    \"merch_code\": \"{{MerchantCode}}\",\r
+
+    \    \"timeout_express\": \"120m\",\r
+
+    \    \"trade_type\": \"InApp\",\r
+
+    \    \"notify_url\": \"https://www.baidu.com\",\r
+
+    \    \"title\": \"iphone1\",\r
+
+    \    \"business_type\":\"BuyGoods\",\r
+
+    \    \"payee_identifier\": \"{{MerchantCode}}\",\r
+
+    \t\"payee_identifier_type\": \"04\",\r
+
+    \t\"payee_type\": \"5000\"\r
+
+    \  },\r
+
+    \  \"method\": \"payment.preorder\",\r
+
+    \  \"sign\": \"XCkbUInz+ZSPn9wjMKQClJX4U0dqqcHlrFf+hWlZPVHmwzMjfzmIHqyGu0KV+B7gT8HUiOyXF1rh+MuwajdlAcifP7U7mOZMKnwApEzdTvFzWLDl0AGonsfeH+FkbMdMbhciJm/4ssQMCVfZgvohxTk2sd1FUQzuFg7yvt6R8IU0kwFd77IGsW5HAQSblDzdNnkViZA+Wu82ZXyZJc58QUKQUNmGmHsjoAIO2LdFO4nPxjKb1ZdlQMm/dQxnUXgLA9A0DUofuf4jtf5m2IqY67ZpIdUJMDYO8ki3NYL7b9RRxz3q2Etu8DChPV09zwj3xrLp7zEN2qowMGF6iuL6RQ==\",\r
+
+    \  \"version\": \"1.0\",\r
+
+    \  \"sign_type\": \"SHA256WithRSA\",\r
+
+    \  \"timestamp\": \"1535166225\"\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "if(pm.response.code == 200){\r
+
+      \    var responseBodyJson = JSON.parse(responseBody);\r
+
+      \    console.log(responseBodyJson);\r
+
+      \    pm.environment.set(\"prepay_id\", responseBodyJson.biz_content.prepay_id);\r
+
+      }"
+    language: text/javascript
+order: 4000

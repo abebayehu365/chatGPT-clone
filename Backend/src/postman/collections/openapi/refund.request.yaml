@@ -1,0 +1,42 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/merchant/refund"
+method: POST
+headers:
+  Authorization: "{{token}}"
+  x-app-key: "{{appid}}"
+body:
+  type: json
+  content: "{\r
+
+    \t\r
+
+    \t\"timestamp\": \"1536637503\",\r
+
+    \    \"nonce_str\": \"845255910308564481\",\r
+
+    \    \"method\": \"payment.refund\",\r
+
+    \    \"sign_type\": \"SHA256WithRSA\",\r
+
+    \    \"sign\": \"FTIDl4d+jf0S7KtSt9xjfQ7FlyPjpdEeZcHwtnlzO0DCVo7txz0ybjiWBgxevGCtb9DelmIK2eEydOwlIqIXGQpNJPTZN14SJXxMvP6XkyFj3bjCKwpqVy4ubPdVLDbDUHWtWi2G8dcieXEECxGCirKnUE0sFKAOW9m9DJpAhdxRltcJJdYlwCISd1kE9C3qkmXBEhL9ghEnnu+BYdJYJ0kwlzdDSIHUagZlhqPdZnUZFN4ZwXlXptV7IKsqkI1AurMpPiXhPUucyUShZUxchcKtIPvhBuakQBs2Tv9yOwnObtdFQm82het71/M3CdCnDUOKNNO4glnO0S9VRwDiwg==\",\r
+
+    \    \"version\": \"1.0\",\r
+
+    \    \"biz_content\": {\r
+
+    \      \"merch_order_id\": \"{{merch_order_id}}\",\r
+
+    \      \"appid\": \"{{MerchantId}}\",\r
+
+    \      \"merch_code\": \"{{MerchantCode}}\",\r
+
+    \      \"refund_request_no\": \"{{refund_request_no}}\",\r
+
+    \t\r
+
+    \      \"refund_reason\": \"refund it, haha\"\r
+
+    \    }\r
+
+    }"
+order: 9000

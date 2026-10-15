@@ -1,0 +1,38 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/auth/authToken"
+method: POST
+headers:
+  X-APP-Key: "{{appid}}"
+  Authorization: "{{token}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"nonce_str\": \"5K8264ILTKCH16CQ2502SI8ZNMTM67VS\",\r
+
+    \  \"biz_content\": {\r
+
+    \    \"access_token\": \"{{access_token}}\",\r
+
+    \    \"appid\": \"{{MerchantId}}\",\r
+
+    \    \"resource_type\": \"OpenId\",\r
+
+    \    \"trade_type\": \"InApp\"\r
+
+    \  },\r
+
+    \  \"method\": \"payment.authtoken\",\r
+
+    \  \"sign\": \"fsrL3dpoFc7B3Y094vN9OyeuUzWrzuxkBsZt9HciYqCQyMd+1VaF9psxT4xPUpI48PR1pfSgp3r9v1AlG79D4hTKdQhekjEGKrWykw5Fyyh6Z6O8NIStf070GqMq22WfwiDIP+cF1hG3v2IvEcv7WfG5CBKxoqEmEdWftRH5ufCAPzh034FuoHHFnRomHgl87m85q55zctwwue2PgL1hHMdx8xvrgruh2rYGL+X8JtMP47LIjyQynKLTEhzfSPzFgaQZ1i59p56DhL/sHYWqv/tUWFu3jPFbbz3TZiTkPkQw8x2FlkuVD2w/iCjOKowwyIH6zCWh06Q27IVYRgO06w==\",\r
+
+    \  \"version\": \"1.0\",\r
+
+    \  \"app_code\":\"{{MerchantCode}}\",\r
+
+    \  \"sign_type\": \"SHA256WithRSA\",\r
+
+    \  \"timestamp\": \"1535166225\"\r
+
+    }"
+order: 3000

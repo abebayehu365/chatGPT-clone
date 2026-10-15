@@ -1,0 +1,54 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/app/checkout"
+method: POST
+headers:
+  x-app-key: "{{appid}}"
+  Authorization: "{{token}}"
+body:
+  type: json
+  content: "{\r
+
+    \r
+
+    \t\"timestamp\": \"1535166225\",\r
+
+    \t\"nonce_str\": \"5K8264ILTKCH16CQ2502SI8ZNMTM67VS\",\r
+
+    \t\"method\": \"payment.checkout\",\r
+
+    \t\"sign_type\": \"SHA256WithRSA\",\r
+
+    \t\"sign\": \"LsLMz25iRPMp/1mmD5rKPyQ87//mpdbd8f8fpRdxHewjyKZQVTSBrcmsJUqHNf/56B+IIOFutGiy6lpy4qPCGo138tRw60A/7Jlrsn9r983OrfnJRMhoS3rXzDf3uK3axp3kuqJ9gEWULk1rnqyHLIQ9TWMUnvQDBlE6dcQjqB55ErVV72/+wJHcIx2QocJobkBo5pGhX+9Zt5tGHHOsXdfhL1EB4drBKbLwfralavDV1SnMkWBmqtp0ecHPiWE87rwFo5aiyXS8jzD29DzBFQ6UFRbrS8uCEEG1maSdqTHmenj4P386RQERhX1/aikAfkatNex5BwD4GLhO9kmedg==\",\r
+
+    \t\"lang\": \"en\",\r
+
+    \t\"version\": \"1.0\",\r
+
+    \t\"app_code\": \"{{MerchantId}}\",\r
+
+    \t\"biz_content\": {\t\t\r
+
+    \t\t\"appid\": \"{{MerchantId}}\",\r
+
+    \t\t  \"merch_code\": \"{{MerchantCode}}\",\r
+
+    \t\t\"prepay_id\": \"{{prepay_id}}\",  \r
+
+    \t\t\"trade_type\": \"InApp\",\r
+
+    \t\t\"payer_identifier\": \"{{ConsumerMsisdn}}\",\r
+
+    \t\t\"payer_identifier_type\": \"01\",\r
+
+    \t\t\"payer_type\": \"1000\",\r
+
+    \t\t\"pwa_token\": \"a0e47ecec757a7f0046fce31be73b78f\",\r
+
+    \t\t\"raw_request\": \"appid={{MerchantId}}&merch_code={{MerchantCode}}&nonce_str=5K8264ILTKCH16CQ2502SI8ZNMTM67VS&prepay_id={{prepay_id}}&timestamp=1535166225&sign=P+RZcTnxi/GFGPsxn01TLHIh01OjzYtuLXJyRXZRPAQKkM+Rt8A9EY2iz5+CvrVzV5SQA8BlwG4hT8y3cNcrMzZ/MpoI8NmiTN10CgoxSUJsVSs4o6laJ1lkj4CrtL9XvrTlqVg3AaFrMeyk7bcc6y7J70nFrOAGlKiLRB20e2wvmQSyIzG/gzvTMNXQUR17AJspCdbesZ7xrYx9i5UJfzg8DlHeUevHR1lk+hbiGRGqhx6/8cQMtZvSfhQyC/+LGDiQBwPk8q4OcxcmW8GJqwRAarbDWxkXO6deinOxx0GY7Z9th9sdPpRUUTJGHh2Fgi9hz+7W5xw7cmx+aN9YsQ==&sign_type=SHA256WithRSA\",\r
+
+    \t\t\"funds_source\": \"Wallet\"\r
+
+    \t}\r
+
+    }"
+order: 5000

@@ -1,0 +1,36 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/merchant/queryRefund"
+method: POST
+headers:
+  Authorization: "{{token}}"
+  x-app-key: "{{appid}}"
+body:
+  type: json
+  content: "{\r
+
+    \    \"timestamp\": \"1536637503\",\r
+
+    \    \"nonce_str\": \"5K8264ILTKCH16CQ2502SI8ZNMTM67VS\",\r
+
+    \    \"method\": \"payment.queryrefund\",\r
+
+    \    \"sign_type\": \"SHA256WithRSA\",\r
+
+    \    \"sign\": \"gEWbbeNpMwva64t6J7HbUg+AxffsDyR0DZ+spiny+V2MAyamw2ZmjxJG2ROVTwH40HuFfF7/nA8x4N7d73+OjSIMSU65nIF/XB01ONRU4/fGIlbR6V3yXi+yIZEfD3cfP+9ec6De0q/t+24b4VP77Z1YnY2GhgT/n+ZCWnxsQkL6RBwiWPo7X4ZQV0Gtfd3vdtJ5Jmg8eAK4giVKmaBmkg1F58WBF542VrjYj93Kpufb7awcj/3iDheqC8uOVdz9tGingfgv6An7Iq/uSaKpyOda4FO9gYqFVlEQjOyp/+Aq++Iyniy7MfwgcUdk9v2jP+rWmGTobXqfUzr+EiyPXQ==\",\r
+
+    \    \"version\": \"1.0\",\r
+
+    \    \"biz_content\": {\r
+
+    \        \"merch_order_id\": \"{{merch_order_id}}\",\r
+
+    \        \"merch_code\": \"{{MerchantCode}}\",\r
+
+    \        \"appid\": \"{{MerchantId}}\",\r
+
+    \        \"refund_request_no\": \"{{refund_request_no}}\"\r
+
+    \    }\r
+
+    }"
+order: 10000

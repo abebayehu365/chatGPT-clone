@@ -1,0 +1,60 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/auth/applyH5Token"
+method: POST
+headers:
+  Authorization: "{{token}}"
+  x-app-key: "{{appid}}"
+body:
+  type: json
+  content: "{\r
+
+    \  \"nonce_str\": \"c257ce7147de4f9a813c95cb62b7a420\",\r
+
+    \  \"biz_content\": {\r
+
+    \    \"auth_identifier\": \"{{ConsumerMsisdn}}\",\r
+
+    \    \"auth_type\": \"1000\",\r
+
+    \    \"appid\": \"{{MerchantId}}\",\r
+
+    \    \"resource_type\": \"OpenId\",\r
+
+    \    \"trade_type\": \"InApp\",\r
+
+    \    \"auth_merch_code\": \"{{MerchantCode}}\",\r
+
+    \    \"auth_limit\": \"5\",\r
+
+    \    \"auth_identifier_type\": \"01\",\r
+
+    \    \"callback_info\":\"123456\"\r
+
+    \  },\r
+
+    \  \"method\": \"payment.applyh5token\",\r
+
+    \  \"sign\": \"VNhVawAm7dF1Be6UvizcAFdMyXNxATupXJ/GrkgaMwfo+97o9sbodkwSNKA7OMd+twxkk/EfN8dTC60Z/h3qBvJ7VliDHiXVHn3+Vr0AKkynw5ITEwFrGuOnOtGHFRy+IGkwT4Xyb1DQyQeeeB4RC68FYbrqRrqfAXfEVjzOoe3epFQMQZ/lJPHK/WLSqM31da5nz8cash5bzBbXvlkcRJcsT+aTh/uFpeVs6AvX0P+ZgEdbNtIWGiL2DEvOL2+l/Yn1/SzYacLzO+PwjIeV8piv2twYfi5dIu7GaX0zQj617hlB2MNkgKsQ6NB0B2Mp8U/Y16LVy//r+0tH5peOhA==\",\r
+
+    \  \"version\": \"1.0\",\r
+
+    \  \"sign_type\": \"SHA256WithRSA\",\r
+
+    \  \"timestamp\": \"1664529190758\", \r
+
+    \  \"app_code\": \"{{MerchantCode}}\"\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "if(pm.response.code == 200){\r
+
+      \    var responseBodyJson = JSON.parse(responseBody);\r
+
+      \    console.log(responseBodyJson);\r
+
+      \    pm.environment.set(\"access_token\", responseBodyJson.biz_content.access_token);\r
+
+      }\r\n"
+    language: text/javascript
+order: 2000

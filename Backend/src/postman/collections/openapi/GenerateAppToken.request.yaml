@@ -1,0 +1,25 @@
+$kind: http-request
+url: "{{BasicURL}}/payment/v1/token"
+method: POST
+headers:
+  X-APP-Key: "{{appid}}"
+body:
+  type: json
+  content: "{\r
+
+    \     \t\"appSecret\":\"{{appSecret}}\"\r
+
+    }"
+scripts:
+  - type: afterResponse
+    code: "if(pm.response.code == 200){\r
+
+      \    var responseBodyJson = JSON.parse(responseBody);\r
+
+      \    console.log(responseBodyJson);\r
+
+      \    pm.environment.set(\"token\", responseBodyJson.token);\r
+
+      }"
+    language: text/javascript
+order: 1000
