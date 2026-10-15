@@ -1,5 +1,17 @@
 # React + Vite
 
+## Backend API
+
+The frontend uses `https://chatgpt-clone-bkb7.onrender.com/api` by default.
+To use a different API URL, set `VITE_API_BASE_URL` in a `.env` file in the
+`Frontend` directory, for example:
+
+```env
+VITE_API_BASE_URL=https://your-backend.example.com/api
+```
+
+Restart the Vite development server after changing the API URL.
+
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
 Currently, two official plugins are available:
