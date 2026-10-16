@@ -6,7 +6,8 @@ import MessageList from "./components/MessageList/MessageList";
 import ChatInput from "./components/ChatInput/ChatInput";
 
 const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || "http://localhost:5500/api";
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://chatgpt-clone-ml7j.onrender.com/api";
 
 function App() {
   const [conversations, setConversations] = useState([]);
